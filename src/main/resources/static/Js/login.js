@@ -1,6 +1,6 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
-
+    // inicializaciones si es necesario
 });
 
 async function iniciarSesion() {
@@ -20,7 +20,7 @@ async function iniciarSesion() {
     if (respuesta !== "FAIL") {
         localStorage.token = respuesta;
         localStorage.email = datos.email;
-        document.location.href = "usuarios.html";
+        document.location.href = "index.html";
     } else {
         alert("Usuario o contraseña incorrectos, intente de nuevo");
     }
