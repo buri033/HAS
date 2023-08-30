@@ -2,67 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/loginn.css" rel="stylesheet">
 
-    <title>Home Administrative system</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <!-- Favicons -->
-    <link href="assets/img/LogoSample_ByTailorBrands.jpg" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="css/InicioSesion.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Inicio de Sesion</title>
 
 </head>
 
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-between">
 
-        <h1 class="logo" style="color:white"><a href="index.html">
-            <img src="assets/img/LogoOrigin.png" alt="Logo">HAS </a></h1>
-
-    </div>
-</header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
-    <div class="hero-container">
-        <h3><strong>INICIAR DE SESIÓN</strong></h3>
-        <div class="form">
-
-            <form>
-                <div class="form-group mt-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
-                </div>
-                <div class="form-group mt-3">
-                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
-                </div>
-                <div class="text-center">
-                    <button onclick=iniciarSesion()><a href="index.html">Iniciar Sesión</a></button>
-                </div>
-            </form>
+    <div class="box">
+        <span class="borderLine"></span>
+        <form>
+            <h2>Sing in</h2>
+            <div class="inputBox">
+                <input type="email" id="txtEmail" name="txtEmail" required="required">
+                <span>Email</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="txtPassword" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
             <br>
-            <div class="text-for-sesion2">No te has registrado?</div>
-            <a href="Registro.html">Registrate Aquí</a><br><br><!--NUEVO1-->
-        </div> <!-- Cierre de div class="form" -->
+            <div class="links">
+                <a href="#">Forgot password</a>
+                <a href="#">Sing up</a>
+            </div>
+            <div class="text-center">
+                <button onclick="iniciarSesion()"> <a href="index.html">Iniciar Sesión</a></button>
+            </div>
+        </form>
+        <br>
+
+    </div> <!-- Cierre de div class="form" -->
     </div> <!-- Cierre de div class="hero-container" -->
 </section><!-- End Hero -->
 
