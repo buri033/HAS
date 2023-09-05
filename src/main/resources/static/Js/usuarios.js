@@ -26,7 +26,7 @@ async function cargarUsuarios(busqueda = '') {
     let encontrado = false;
     for (let usuario of usuarios) {
         // Solo mostrar usuarios que coincidan con la búsqueda
-        if(buscarId === usuario.id || usuario.nombre.includes(busqueda) || usuario.apellido.includes(busqueda) || usuario.email.includes(busqueda)) {
+        if(buscarId === usuario.id || usuario.nombre.includes(busqueda) || usuario.telefono.includes(busqueda) || usuario.email.includes(busqueda) || usuario.password.includes(busqueda) || usuario.repetirPassword.includes(busqueda)) {
             let botonEliminar = '<a href="#" onclick="eliminarUsuario(' + usuario.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
             let botonEditar = '<a href="#" onclick="editarUsuario(' + usuario.id + ')" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-edit"></i></a>';
 

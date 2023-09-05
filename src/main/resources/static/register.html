@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registerr.css">
+    <title>Registro</title>
+</head>
+<body>
+<div class="box">
+    <span class="borderLine"></span>
+    <form>
+        <h2>Registrate</h2>
+        <div class="inputBox">
+            <input type="text" id="txtNombre" required="required">
+            <span>Nombre</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+            <input type="text" id="txtTelefono" required="required">
+            <span>Teléfono</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+            <input type="email" id="txtEmail" required="required">
+            <span>Email</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+            <input type="password" id="txtPassword" required="required">
+            <span>Contraseña</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+            <input type="password" id="txtRepetirPassword" required="required">
+            <span>Contraseña</span>
+            <i></i>
+        </div>
+        <div class="links">
+            <a href="login.html">Iniciar Sesion</a>
+        </div>
+        <div class="text-center">
+            <button onclick="registrarUsuario()"><a href="login.html">Registrarme</a></button>
+        </div>
+    </form>
+</div>
+
+<script src="Js/registrar.js"></script>
+
+</body>
+</html>
