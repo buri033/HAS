@@ -131,7 +131,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: white;
   font-size: 15px;
   padding: 0 4px;
   white-space: nowrap;
@@ -171,7 +171,7 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  color: white;
 }
 
 .navbar .dropdown ul {
@@ -287,7 +287,7 @@ h6 {
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: #211b1b;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -328,7 +328,7 @@ h6 {
   z-index: 99;
   opacity: 1;
   visibility: visible;
-  background: #fff;
+  background: #100e0e;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
@@ -347,7 +347,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #2ed436;
+  color: #151715;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
