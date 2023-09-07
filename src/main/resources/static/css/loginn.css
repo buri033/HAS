@@ -186,19 +186,16 @@ body
 }
 .box form input[type="submit"]
 {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
     border: none;
     outline: none;
     padding: 9px 25px;
     background: #fff;
     cursor: pointer;
     font-size: .9em;
-    border-radius: 20px;
+    border-radius: 4px;
     font-weight: 600;
-    width: 10px;
-    margin-top: 15px;
+    width: 100px;
+    margin-top: 10px;
 }
 .box form input[type="submit"]:active
 {
