@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/loginn.css">
-
-    <title>Inicio de Sesion</title>
-
+    <style>
+        /* Agregar estilos CSS para centrar el botón */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            text-align: center;
+        }
+    </style>
+    <title>Inicio de Sesión</title>
 </head>
-<header id="header" class="fixed-top ">
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-
         <a href="index.html"><h1 class="logo" style="color:white">HAS</h1></a>
     </div>
 </header>
-
-<body>
-
-<!-- ======= Header ======= -->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="box">
         <span class="borderLine"></span>
         <form>
-            <h2>Inicio de Sesion</h2>
+            <h2>Inicio de Sesión</h2>
             <div class="inputBox">
                 <input type="email" id="txtEmail" name="txtEmail" required="required">
                 <span>Correo</span>
@@ -42,15 +49,13 @@
                 <a href="register.html">Registrarme</a>
             </div>
             <div class="hi">
-                <input clonclick="iniciarSesion()" type="submit" value="Iniciar Sesion"><a href="login.html"></a>
+                <input onclick="iniciarSesion()" type="submit" value="Iniciar Sesión">
+                <a href="login.html"></a>
             </div>
         </form>
-        <br>
     </div> <!-- Cierre de div class="form" -->
 </section><!-- End Hero -->
 
 <script src="Js/login.js"></script>
-
 </body>
-
 </html>
