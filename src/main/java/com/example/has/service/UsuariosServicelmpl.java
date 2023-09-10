@@ -45,4 +45,9 @@ public class UsuariosServicelmpl implements UsuariosService{
         userRepository.deleteById(id);
     }
 
+    @Override
+    public Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario) {
+        return null;
+    }
+
 }

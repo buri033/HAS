@@ -12,4 +12,6 @@ public interface UsuariosService {
     public Optional<Usuarios> findById(Long id);
     public Usuarios save(Usuarios usuarios);
     public void deleteById(Long id);
+
+    Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario);
 }
