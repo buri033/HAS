@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji y Barra de Progreso</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="deuda">Deuda:</label>
+      <input type="number" id="deuda" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="capital">Capital:</label>
+      <input type="number" id="capital" class="form-control">
+      <button id="addCapital" class="btn btn-primary mt-2">Agregar Capital</button>
+      <button id="subtractCapital" class="btn btn-primary mt-2">Disminuir Capital</button>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="progress" id="progressBar">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="emoji" id="emojiDiv"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let deudaInput = document.getElementById('deuda');
+    let capitalInput = document.getElementById('capital');
+    let addCapitalButton = document.getElementById('addCapital');
+    let subtractCapitalButton = document.getElementById('subtractCapital');
+    let progressBar = document.querySelector('#progressBar .progress-bar');
+    let emojiDiv = document.getElementById('emojiDiv');
+
+    let deuda = 0;
+    let capitalTotal = 0;
+
+    addCapitalButton.addEventListener('click', function() {
+      const capitalToAdd = parseFloat(capitalInput.value);
+      if (!isNaN(capitalToAdd)) {
+        capitalTotal += capitalToAdd;
+        updateValues();
+      }
+    });
+
+    subtractCapitalButton.addEventListener('click', function() {
+      const capitalToSubtract = parseFloat(capitalInput.value);
+      if (!isNaN(capitalToSubtract)) {
+        capitalTotal -= capitalToSubtract;
+        updateValues();
+      }
+    });
+
+    function updateValues() {
+      deuda = parseFloat(deudaInput.value);
+
+      const porcentaje1 = 0.10; // 10%
+      const porcentaje2 = 0.20; // 20%
+      const porcentaje3 = 0.50; // 50%
+
+      const totalDeuda1 = deuda + deuda * porcentaje1;
+      const totalDeuda2 = deuda + deuda * porcentaje2;
+      const totalDeuda3 = deuda + deuda * porcentaje3;
+
+
+      let color = '';
+      let progress = 0;
+      let emoji = '';
+      let backgroundColor = '';
+
+
+      if (deuda > capitalTotal) {
+        color = 'bg-danger';
+        progress = 100;
+        emoji = '😟';
+        backgroundColor = 'gray';
+      } else if (totalDeuda3 <= capitalTotal) {
+        color = 'bg-success';
+        progress = 100;
+        emoji = '😄';
+        backgroundColor = 'green';
+      } else if (totalDeuda2 <= capitalTotal && capitalTotal > deuda) {
+        color = 'bg-warning';
+        progress = 66;
+        emoji = '😐';
+        backgroundColor = 'yellow';
+      } else if (totalDeuda1 >= capitalTotal) {
+        color = 'bg-danger';
+        progress = 33;
+        emoji = '😡';
+        backgroundColor = 'orange';
+      }
+
+      progressBar.style.width = `${progress}%`;
+      progressBar.setAttribute('aria-valuenow', progress.toString());
+      progressBar.className = `progress-bar ${color}`;
+      emojiDiv.innerText = emoji;
+      emojiDiv.style.backgroundColor = backgroundColor;
+    }
+
+    updateValues();
+  });
+</script>
+
+</body>
+</html>
