@@ -21,15 +21,15 @@ public class AuthController {
     UsuariosRepository usuariosRepository;
 
     @PostMapping ("api/login")
-    public ResponseEntity<String> login(@RequestBody Usuarios usuarios) {
+    public String login(@RequestBody Usuarios usuarios) {
 
         Usuarios usuariologueado = usuariosServiceImpl.obtenerUsuarioPorCredenciales(usuarios);
         if (usuariologueado != null) {
             // Autenticación exitosa
-            return ResponseEntity.ok("ENCONTRADO");
+            return "ENCONTRADO";
+        }else {
+            // Autenticación fallida
+            return "ERROR";
         }
-
-        // Autenticación fallida
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("ERROR");
     }
 }
