@@ -14,7 +14,7 @@ async function iniciarSesion() {
     });
     const respuesta = await request.text();
     console.log(respuesta)
-    if (respuesta !== "ERROR") {
+    if (respuesta === "ENCONTRADO") {
         alert("Usuario Logueado")
         localStorage.email = datos.email;
         localStorage.password = datos.password;
