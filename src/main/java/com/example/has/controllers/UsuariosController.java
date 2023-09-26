@@ -42,18 +42,18 @@ public class UsuariosController {
     public ResponseEntity<?> readOne(@PathVariable(value = "id") Long id) {
         Optional<Usuarios> oUser = userService.findById(id);
 
-        if (!oUser.isPresent()) {
+        if (oUser.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(oUser);
     }
 
 
-    //Update an user
+    //Update a user
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Usuarios userDetails, @PathVariable(value = "id") Long id) {
         Optional<Usuarios> user = userService.findById(id);
-        if (!user.isPresent()) {
+        if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
@@ -67,7 +67,7 @@ public class UsuariosController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
-        if (!userService.findById(id).isPresent()) {
+        if (userService.findById(id).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         userService.deleteById(id);
@@ -76,10 +76,9 @@ public class UsuariosController {
 
     @GetMapping
     public List<Usuarios> readAll() {
-        List<Usuarios> users = StreamSupport//<--hereda de Object y me trae los stream
+        return StreamSupport//<--hereda de Object y me trae los stream
                 .stream(userService.findAll().spliterator(), false)
                 .collect(Collectors.toList());
-        return users;
     }
 }
 

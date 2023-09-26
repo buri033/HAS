@@ -32,7 +32,7 @@ async function cargarUsuarios(busqueda = '') {
 
             let telefonoTexto = usuario.telefono == null ? '' : usuario.telefono;
             let usuarioHtml = '<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td>'
-                + usuario.apellido + '</td><td>' + usuario.email +'</td><td>' + telefonoTexto + '' +
+                 + usuario.email +'</td><td>' + telefonoTexto + '' +
                 '</td><td>' + botonEliminar + " " + botonEditar +'</td></tr>';
 
             listadoHtml += usuarioHtml;
