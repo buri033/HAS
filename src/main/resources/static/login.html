@@ -13,6 +13,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .box {
             text-align: center;
         }
@@ -39,23 +40,24 @@
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="password" id="txtPassword" required="required">
+                <input type="password" id="txtPassword" name="txtPassword" required="required">
                 <span>Contraseña</span>
                 <i></i>
             </div>
             <br>
             <div class="links">
-                <a href="#">¿Olvidaste tu contraseña?</a>
                 <a href="register.html">Registrarme</a>
             </div>
-            <div class="hi">
-                <button class="boton" onclick="iniciarSesion()">Iniciar sesión</button>
 
-            </div>
+            <a onclick="iniciarSesion()" href="#" >
+                Iniciar Sesión
+            </a>
+
+
         </form>
     </div> <!-- Cierre de div class="form" -->
 </section><!-- End Hero -->
 
-<script src="assets/js/login.js"></script>
 </body>
+<script src="assets/js/login.js"></script>
 </html>

@@ -1,11 +1,7 @@
-// Call the dataTables jQuery plugin
-$(document).ready(function () {
-
-});
-
+// Objetivo: enviar los datos del formulario de login al servidor para que este los valide y devuelva una respuesta
 async function iniciarSesion() {
     let datos = {};
-    datos.email = document.getElementById("txtCorreo").value;
+    datos.email = document.getElementById("txtEmail").value;
     datos.password = document.getElementById("txtPassword").value;
 
     const request = await fetch('api/login', {
@@ -20,6 +16,8 @@ async function iniciarSesion() {
     console.log(respuesta)
     if (respuesta !== "ERROR") {
         alert("Usuario Logueado")
+        localStorage.email = datos.email;
+        localStorage.password = datos.password;
         document.location.href = "index.html";
     } else {
         alert("Usuario o contraseña incorrectos, intente de nuevo");

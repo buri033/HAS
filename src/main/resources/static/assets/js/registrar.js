@@ -1,7 +1,4 @@
-// Call the dataTables jQuery plugin
-$(document).ready(function () {
-    // Aquí puedes inicializar el plugin dataTables si lo necesitas
-});
+
 
 async function registrarUsuario() {
     let datos = {};
@@ -9,13 +6,7 @@ async function registrarUsuario() {
     datos.telefono = document.getElementById("txtTelefono").value;
     datos.email = document.getElementById("txtEmail").value;
     datos.password = document.getElementById("txtPassword").value;
-
-    let repetirPassword = document.getElementById("txtRepetirPassword").value;
-
-    if (repetirPassword !== datos.password) {
-        alert("Las contraseñas no coinciden");
-        return;
-    }
+    datos.repetirpassword = document.getElementById("txtRepetirPassword").value;
 
     const request = await fetch('api/usuarios', {
         method: 'POST',
