@@ -190,7 +190,7 @@ form .user-details .inputBox
 {
     color: #fff;
 }
-.box form a[type="submit"]
+.box form input[type="submit"]
 {
     border: none;
     outline: none;
@@ -200,10 +200,10 @@ form .user-details .inputBox
     font-size: .9em;
     border-radius: 20px;
     font-weight: 600;
-    width: 130px;
-    margin-top: 15px;
+    width: 110px;
+    margin-top: 10px;
 }
-.box form a[type="submit"]:active
+.box form input[type="submit"]:active
 {
     opacity: 0.8;
 }
