@@ -1,50 +1,43 @@
 // Call the dataTables jQuery plugin
+cargarUsuarios();
 
+/*
 $(document).ready(function () {
     cargarUsuarios();
     $('#usuarios').DataTable();
     actualizarEmailDelUsuario();
 
 });
-
+*/
 function actualizarEmailDelUsuario() {
     document.getElementById("txt-email-usuario").outerHTML = localStorage.email;
 }
 
-async function cargarUsuarios(busqueda = '') {
+async function cargarUsuarios() {
 
-    const buscarId = isNaN(busqueda) ?0 : parseInt(busqueda)
+    try {
 
-    const request = await fetch('api/usuarios', {
-        method: 'GET',
-        headers: getHeaders()
-    });
-    const usuarios = await request.json();
+        const request = await fetch('api/usuarios');
+        const usuarios = await request.json();
 
 
-    let listadoHtml = '';
-    let encontrado = false;
-    for (let usuario of usuarios) {
-        // Solo mostrar usuarios que coincidan con la búsqueda
-        if(buscarId === usuario.id || usuario.nombre.includes(busqueda) || usuario.telefono.includes(busqueda) || usuario.email.includes(busqueda) || usuario.password.includes(busqueda) || usuario.repetirPassword.includes(busqueda)) {
+        let listadoHtml = '';
+        for (let usuario of usuarios) {
             let botonEliminar = '<a href="#" onclick="eliminarUsuario(' + usuario.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
             let botonEditar = '<a href="#" onclick="editarUsuario(' + usuario.id + ')" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-edit"></i></a>';
 
-            let telefonoTexto = usuario.telefono == null ? '' : usuario.telefono;
-            let usuarioHtml = '<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td>'
-                 + usuario.email +'</td><td>' + telefonoTexto + '' +
-                '</td><td>' + botonEliminar + " " + botonEditar +'</td></tr>';
+            let usuarioHtml = '<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td>' + '</td><td>' + usuario.email + '</td><td>' +
+                usuario.telefono + '</td><td>' + usuario.password + '</td><td>'  + botonEditar + " " + botonEliminar + '</td>' + '</tr>'
 
             listadoHtml += usuarioHtml;
-            encontrado = true;
         }
-    }
-    if (!encontrado) {
-        listadoHtml = '<tr><td colspan="6" class="text-center">No se encontraron usuarios</td></tr>';
+
+        document.querySelector("#usuarios tbody").outerHTML = listadoHtml;
+    } catch (error) {
+        alert('Error al cargar los usuarios: ');
     }
 
 
-    document.querySelector("#usuarios tbody").outerHTML = listadoHtml;
 }
 
 
