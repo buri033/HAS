@@ -4,6 +4,7 @@ import com.example.has.models.Usuarios;
 import com.example.has.repository.UsuariosRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,6 +52,12 @@ public class UsuariosServicelmpl implements UsuariosService{
     public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public Usuarios update(Usuarios usuarios, Long id) {
+        return null;
+    }
+
 
     @Override
     public Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario) {

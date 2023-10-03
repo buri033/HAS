@@ -31,7 +31,7 @@ public class UsuariosController {
             return ResponseEntity.badRequest().body("Los campos nombre, apellido y email son obligatorios.");
         }
 
-        // Aquí puedes agregar más validaciones según tus necesidades
+
 
         // Guardar el usuario si pasa todas las validaciones
         Usuarios newUser = usuariosRepository.save(user);
@@ -49,21 +49,6 @@ public class UsuariosController {
     }
 
 
-    //Update a user
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Usuarios userDetails, @PathVariable(value = "id") Long id) {
-        Optional<Usuarios> user = userService.findById(id);
-        if (user.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        user.get().setNombre(userDetails.getNombre());
-        user.get().setEmail(userDetails.getEmail());
-        user.get().setTelefono(userDetails.getTelefono());
-        user.get().setPassword(userDetails.getPassword());
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user.get()));
-    }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
@@ -80,5 +65,21 @@ public class UsuariosController {
                 .stream(userService.findAll().spliterator(), false)
                 .collect(Collectors.toList());
     }
+
+    @PutMapping("/{id}") //actualizar un usuario
+    public ResponseEntity<?> update(@RequestBody Usuarios user, @PathVariable(value = "id") Long id) {
+        Optional<Usuarios> oUser = userService.findById(id);
+        if (oUser.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        oUser.get().setNombre(user.getNombre());
+        oUser.get().setEmail(user.getEmail());
+        oUser.get().setTelefono(user.getTelefono());
+        oUser.get().setPassword(user.getPassword());
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(oUser.get()));
+
+    }
 }
+
+
 
