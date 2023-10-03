@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emoji y Barra de Progreso</title>
+    <title>Movimientos de cuenta</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         .emoji-bar-container {
@@ -21,13 +21,18 @@
             flex: 1;
         }
     </style>
+    <header id= "header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html"><h1 class="logo" style="color:black">HAS</h1></a>
+        </div>
+    </header>
 </head>
 <body>
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <label for="saldo">Saldo:</label>
+            <label for="saldo">Ingresar movimiento89:</label>
             <input type="number" id="saldo" class="form-control">
             <button id="addSaldo" class="btn btn-primary mt-2">Agregar Saldo</button>
             <button id="subtractSaldo" class="btn btn-primary mt-2">Disminuir Saldo</button>
