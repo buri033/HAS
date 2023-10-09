@@ -1,0 +1,96 @@
+/* Agregar estilos a elementos HTML */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilos para el encabezado */
+#header {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Estilos para el formulario */
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para la barra de emoji y el progreso */
+.emoji-bar-container {
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.emoji {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.progress-bar-container {
+    width: 70%;
+    margin-left: 1rem;
+}
+
+.progress {
+    height: 20px;
+    border-radius: 5px;
+}
+
+/* Estilos para el historial */
+#historialList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#historialList li {
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+/* Estilos para el emoji */
+#emojiDiv {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

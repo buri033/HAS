@@ -18,7 +18,7 @@ async function iniciarSesion() {
         alert("Usuario Logueado")
         localStorage.email = datos.email;
         localStorage.password = datos.password;
-        document.location.href = "IndexMain.html";
+        document.location.href = "perfiles.html";
     } else {
         alert("Usuario o contraseña incorrectos, intente de nuevo");
     }
