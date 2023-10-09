@@ -1978,3 +1978,7 @@ section {
   color: #fff;
   text-decoration: none;
 }
+.carrusel{
+
+  max-height: 1000px;
+}
