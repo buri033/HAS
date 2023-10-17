@@ -133,7 +133,7 @@ async function editarUsuario(id) {
         };
 
         // Realizar la solicitud AJAX para actualizar los datos del usuario
-        const actualizarUsuarioRequest = await fetch('api/usuario/' + id, {
+        const actualizarUsuarioRequest = await fetch('api/usuarios/' + id, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -151,7 +151,6 @@ async function editarUsuario(id) {
             // Puedes manejar errores aquí
         }
     }
-
 
 
 

@@ -81,7 +81,9 @@ h6 {
     line-height: 1;
     font-weight: 600;
     letter-spacing: 1px;
-    text-transform: uppercase;
+}
+.logoto{
+    transform: translate(0, -3px);
 }
 
 #header .logo a {
@@ -2011,4 +2013,9 @@ section {
             0px 0px 3px rgba(35, 31, 31, 0.5);
     text-align: center;
 
+}
+.index-1{
+    max-width: 280px;
+    max-height: 280px;
+    width: 500px;
 }

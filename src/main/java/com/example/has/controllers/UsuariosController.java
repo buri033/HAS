@@ -66,19 +66,28 @@ public class UsuariosController {
                 .collect(Collectors.toList());
     }
 
-    @PutMapping("/{id}") //actualizar un usuario
+    @PutMapping("/{id}") // Actualizar un usuario
     public ResponseEntity<?> update(@RequestBody Usuarios user, @PathVariable(value = "id") Long id) {
         Optional<Usuarios> oUser = userService.findById(id);
         if (oUser.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        oUser.get().setNombre(user.getNombre());
-        oUser.get().setEmail(user.getEmail());
-        oUser.get().setTelefono(user.getTelefono());
-        oUser.get().setPassword(user.getPassword());
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(oUser.get()));
 
+        Usuarios existingUser = oUser.get();
+
+        // Actualiza los campos del usuario con los nuevos valores
+        existingUser.setNombre(user.getNombre());
+        existingUser.setEmail(user.getEmail());
+        existingUser.setTelefono(user.getTelefono());
+        existingUser.setPassword(user.getPassword());
+
+        // Guarda el usuario actualizado en la base de datos
+        Usuarios updatedUser = userService.save(existingUser);
+
+        return ResponseEntity.ok(updatedUser);
     }
+
+
 }
 
 
