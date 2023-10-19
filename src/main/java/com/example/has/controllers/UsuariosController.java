@@ -17,74 +17,40 @@ import java.util.stream.StreamSupport;
 @RequestMapping("/api/usuarios")
 public class UsuariosController {
     @Autowired
-    private UsuariosService userService;
-    @Autowired
     private UsuariosRepository usuariosRepository;
 
     @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody Usuarios user) {
-        // Verificar si los campos obligatorios no están en blanco
-        if (user.getNombre() == null || user.getNombre().isEmpty() ||
-                user.getEmail() == null || user.getEmail().isEmpty() ||
-                    user.getTelefono() == null || user.getTelefono().isEmpty() ||
-                        user.getPassword() == null || user.getPassword().isEmpty()) {
-            return ResponseEntity.badRequest().body("Los campos nombre, apellido y email son obligatorios.");
-        }
-
-
-
-        // Guardar el usuario si pasa todas las validaciones
-        Usuarios newUser = usuariosRepository.save(user);
-        return ResponseEntity.ok(newUser);
+    public Usuarios createUser(@RequestBody Usuarios user) {
+        return usuariosRepository.save(user);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> readOne(@PathVariable(value = "id") Long id) {
-        Optional<Usuarios> oUser = userService.findById(id);
-
-        if (oUser.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(oUser);
+    public Usuarios readOne(@PathVariable(value = "id") Long id) {
+        return usuariosRepository.findById(id).get();
     }
-
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
-        if (userService.findById(id).isEmpty()) {
+        if (usuariosRepository.findById(id).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        userService.deleteById(id);
+        usuariosRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
     public List<Usuarios> readAll() {
-        return StreamSupport//<--hereda de Object y me trae los stream
-                .stream(userService.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+        return usuariosRepository.findAll();
     }
 
     @PutMapping("/{id}") // Actualizar un usuario
-    public ResponseEntity<?> update(@RequestBody Usuarios user, @PathVariable(value = "id") Long id) {
-        Optional<Usuarios> oUser = userService.findById(id);
-        if (oUser.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Usuarios existingUser = oUser.get();
-
-        // Actualiza los campos del usuario con los nuevos valores
-        existingUser.setNombre(user.getNombre());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setTelefono(user.getTelefono());
-        existingUser.setPassword(user.getPassword());
-
-        // Guarda el usuario actualizado en la base de datos
-        Usuarios updatedUser = userService.save(existingUser);
-
-        return ResponseEntity.ok(updatedUser);
+    public Usuarios update(@RequestBody Usuarios userDetails, @PathVariable(value = "id") Long id) {
+        Usuarios user = usuariosRepository.findById(id).get();
+        user.setNombre(userDetails.getNombre());
+        user.setTelefono(userDetails.getTelefono());
+        user.setEmail(userDetails.getEmail());
+        user.setPassword(userDetails.getPassword());
+        return usuariosRepository.save(user);
     }
 
 

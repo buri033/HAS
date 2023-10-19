@@ -1,14 +1,11 @@
-// Call the dataTables jQuery plugin
 cargarUsuarios();
-
-/*
 $(document).ready(function () {
     cargarUsuarios();
     $('#usuarios').DataTable();
     actualizarEmailDelUsuario();
-
 });
-*/
+
+
 function actualizarEmailDelUsuario() {
     document.getElementById("txt-email-usuario").outerHTML = localStorage.email;
 }
@@ -79,8 +76,7 @@ async function eliminarUsuario(id) {
             method: 'DELETE',
             headers: getHeaders()
         });
-        window.location.reload();
-
+        cargarUsuarios()
     })
 
 }
@@ -119,17 +115,17 @@ async function editarUsuario(id) {
     // formValues.swal-input1 contendrá el nuevo valor del nombre, y así sucesivamente
     if (formValues) {
         // Procesar los valores ingresados aquí
-        const nuevoNombre = formValues['swal-input1'];
-        const nuevaPassword = formValues['swal-input2'];
-        const nuevoEmail = formValues['swal-input3'];
-        const nuevoTelefono = formValues['swal-input4'];
+        const nombre = document.getElementById("swal-input1").value;
+        const password = document.getElementById("swal-input2").value;
+        const email = document.getElementById("swal-input3").value;
+        const telefono = document.getElementById("swal-input4").value;
 
         // Crear un objeto con los datos actualizados del usuario
         const datosActualizados = {
-            nombre: nuevoNombre,
-            password: nuevaPassword,
-            email: nuevoEmail,
-            telefono: nuevoTelefono
+            nombre,
+            password,
+            email,
+            telefono
         };
 
         // Realizar la solicitud AJAX para actualizar los datos del usuario
@@ -145,10 +141,12 @@ async function editarUsuario(id) {
 
         if (actualizarUsuarioRequest.status === 200) {
             Swal.fire('Usuario actualizado correctamente', '', 'success');
+            cargarUsuarios();
             // Puedes realizar alguna acción adicional si la actualización fue exitosa
         } else {
             Swal.fire('Error al actualizar el usuario', '', 'error');
             // Puedes manejar errores aquí
+            cargarUsuarios();
         }
     }
 
