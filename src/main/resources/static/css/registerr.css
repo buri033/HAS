@@ -6,6 +6,18 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+#header .logo {
+    top: 30px;
+    position: absolute;
+    left: 30px;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 body
 {
     display: flex;
@@ -32,7 +44,7 @@ body
     left: -50%;
     width: 380px;
     height: 600px;
-    background: linear-gradient(0deg,transparent,transparent,#0dc052,#0dc052,#0dc052);
+    background: linear-gradient(0deg,transparent,transparent, #086513,#086513,#086513);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -45,7 +57,7 @@ body
     left: -50%;
     width: 380px;
     height: 600px;
-    background: linear-gradient(0deg,transparent,transparent,#0dc052,#0dc052,#0dc052);
+    background: linear-gradient(0deg,transparent,transparent,#086513,#086513,#086513);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -190,7 +202,7 @@ form .user-details .inputBox
 {
     color: #fff;
 }
-.box form input[type="submit"]
+.box form a[type="submit"]
 {
     border: none;
     outline: none;
@@ -201,9 +213,9 @@ form .user-details .inputBox
     border-radius: 20px;
     font-weight: 600;
     width: 130px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
-.box form input[type="submit"]:active
+.box form a[type="submit"]:active
 {
     opacity: 0.8;
 }

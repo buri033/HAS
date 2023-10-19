@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/loginn.css">
+    <link rel="stylesheet" href="css/loginn.css">
     <style>
         /* Agregar estilos CSS para centrar el botón */
         body {
@@ -13,6 +13,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .box {
             text-align: center;
         }
@@ -39,23 +40,24 @@
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="password" id="txtPassword" required="required">
+                <input type="password" id="txtPassword" name="txtPassword" required="required">
                 <span>Contraseña</span>
                 <i></i>
             </div>
             <br>
             <div class="links">
-                <a href="#">¿Olvidaste tu contraseña?</a>
                 <a href="register.html">Registrarme</a>
             </div>
-            <div class="hi">
-                <input onclick="iniciarSesion()" type="submit" value="Iniciar Sesión">
-                <a href="login.html"></a>
-            </div>
+
+            <a onclick="iniciarSesion()"  type="submit">
+                Iniciar Sesión
+            </a>
+
+
         </form>
     </div> <!-- Cierre de div class="form" -->
 </section><!-- End Hero -->
 
-<script src="Js/login.js"></script>
 </body>
+<script src="assets/js/login.js"></script>
 </html>

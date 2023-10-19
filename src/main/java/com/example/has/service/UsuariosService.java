@@ -1,6 +1,7 @@
 package com.example.has.service;
 
 import com.example.has.models.Usuarios;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,4 +13,6 @@ public interface UsuariosService {
     public Optional<Usuarios> findById(Long id);
     public Usuarios save(Usuarios usuarios);
     public void deleteById(Long id);
+    public Usuarios update(Usuarios usuarios, Long id);
+    Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario);
 }

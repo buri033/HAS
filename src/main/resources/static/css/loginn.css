@@ -6,6 +6,18 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+#header .logo {
+    top: 30px;
+    position: absolute;
+    left: 30px;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 body
 {
     display: flex;
@@ -31,7 +43,7 @@ body
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+    background: linear-gradient(0deg,transparent,transparent,#086513,#086513,#086513);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -44,7 +56,7 @@ body
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+    background: linear-gradient(0deg,transparent,transparent,#086513,#086513,#086513);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -64,7 +76,7 @@ body
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg,transparent,transparent,#ff2770,#ff2770,#ff2770);
+    background: linear-gradient(0deg,transparent,transparent, #ffffff, #FFFFFFFF, #fFFFFFFF);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -78,7 +90,7 @@ body
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg,transparent,transparent,#ff2770,#ff2770,#ff2770);
+    background: linear-gradient(0deg,transparent,transparent,#e7e7e7,#e7e7e7,#e7e7e7);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -184,7 +196,7 @@ body
 {
     color: #fff;
 }
-.box form input[type="submit"]
+.box form a[type="submit"]
 {
     border: none;
     outline: none;
@@ -194,10 +206,11 @@ body
     font-size: .9em;
     border-radius: 20px;
     font-weight: 600;
-    width: 141px;
-    margin-top: 25px;
+    width: 150px;
+    margin-top: 10px;
+
 }
-.box form input[type="submit"]:active
+.box form a[type="submit"]:active
 {
     opacity: 0.8;
 }

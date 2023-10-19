@@ -1,175 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emoji y Barra de Progreso</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <style>
-    .emoji-bar-container {
-      display: flex;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos de cuenta</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="IndexMain.css">
 
-    .emoji {
-      flex: 0 0 auto;
-      font-size: 2rem;
-      margin-right: 1rem;
-    }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movimientos de cuenta</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            body {
+                background-color: #f4f4f4;
+                font-family: Arial, sans-serif;
+            }
 
-    .progress-bar-container {
-      flex: 1;
-    }
-  </style>
-</head>
+            .header {
+                background-color: #343a40;
+                color: white;
+                padding: 10px 0;
+            }
+
+            .logo {
+                font-size: 36px;
+                text-decoration: none;
+            }
+
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .input-container {
+                margin-top: 20px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border: none;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+            .emoji-bar-container {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .emoji {
+                flex: 0 0 auto;
+                font-size: 2rem;
+                margin-right: 1rem;
+                background-color: #ffffff;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .progress-bar-container {
+                flex: 1;
+            }
+
+            .progress-bar {
+                height: 20px;
+            }
+
+            .historial-container {
+                margin-top: 20px;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            ul li {
+                margin-bottom: 5px;
+                padding: 5px;
+                background-color: #f0f0f0;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
 <body>
 
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-      <label for="saldo">Saldo:</label>
-      <input type="number" id="saldo" class="form-control">
-      <button id="addSaldo" class="btn btn-primary mt-2">Agregar Saldo</button>
-      <button id="subtractSaldo" class="btn btn-primary mt-2">Disminuir Saldo</button>
+<header class="header">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo">HAS</a>
     </div>
-    <div class="col-md-6">
-      <div>
-        <label for="ingresosTotales">Ingresos Totales:</label>
-        <span id="ingresosTotalesDisplay">0</span>
-      </div>
-      <div>
-        <label for="saldoDisponible">Saldo Disponible:</label>
-        <span id="saldoDisponibleDisplay">0</span>
-      </div>
-      <div>
-        <label for="deuda">Gastos Totales:</label>
-        <span id="deudaDisplay">0</span>
-      </div>
-      <div>
-        <label for="operacion">Categoría:</label>
-        <input type="text" id="operacion" class="form-control" required>
-      </div>
-    </div>
-  </div>
-</div>
+</header>
 
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="emoji-bar-container">
-        <div class="emoji" id="emojiDiv"></div>
-        <div class="progress-bar-container">
-          <div class="progress" id="progressBar">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
+    <div class="row">
+        <div class="col-md-6 input-container">
+            <label for="saldo">Ingresar movimiento:</label>
+            <input type="number" id="saldo" class="form-control">
+            <button id="addSaldo" class="btn btn-primary mt-2">Agregar Saldo</button>
+            <button id="subtractSaldo" class="btn btn-primary mt-2">Disminuir Saldo</button>
         </div>
-      </div>
+        <div class="col-md-6">
+            <div>
+                <label for="ingresosTotales">Ingresos Totales:</label>
+                <span id="ingresosTotalesDisplay">0</span>
+            </div>
+            <div>
+                <label for="saldoDisponible">Saldo Disponible:</label>
+                <span id="saldoDisponibleDisplay">0</span>
+            </div>
+            <div>
+                <label for="deuda">Gastos Totales:</label>
+                <span id="deudaDisplay">0</span>
+            </div>
+            <div>
+                <label for="operacion">Categoría:</label>
+                <input type="text" id="operacion" class="form-control" required>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-      <div>
-        <label for="historial">Historial:</label>
-        <ul id="historialList"></ul>
-      </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="emoji-bar-container">
+                <div class="emoji" id="emojiDiv"></div>
+                <div class="progress-bar-container">
+                    <div class="progress" id="progressBar">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<div class="container mt-5 historial-container">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label for="historial">Historial:</label>
+                <ul id="historialList"></ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    let saldoInput = document.getElementById('saldo');
-    let addSaldoButton = document.getElementById('addSaldo');
-    let subtractSaldoButton = document.getElementById('subtractSaldo');
-    let progressBar = document.querySelector('#progressBar .progress-bar');
-    let emojiDiv = document.getElementById('emojiDiv');
-    let ingresosTotalesDisplay = document.getElementById('ingresosTotalesDisplay');
-    let saldoDisponibleDisplay = document.getElementById('saldoDisponibleDisplay');
-    let operacionInput = document.getElementById('operacion');
-    let deudaDisplay = document.getElementById('deudaDisplay');
+    // Tu script JavaScript aquí
+</script>
 
-    let deuda = 0;
-    let saldoTotal = 0;
-    let saldoDisponible = 0;
+</body>
+</html>
 
-    addSaldoButton.addEventListener('click', function() {
-      const saldoToAdd = parseFloat(saldoInput.value);
-      const operacion = operacionInput.value.trim();
-      if (!isNaN(saldoToAdd) && operacion !== '') {
-        saldoTotal += saldoToAdd;
-        saldoDisponible += saldoToAdd;
+</head>
+
+<body>
+
+<header id= "header" class="fixed-top">
+
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="index.html"><h1 class="logo" style="color:black">HAS</h1></a>
+    </div>
+
+</header>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="saldo">Ingresar movimiento:</label>
+            <input type="number" id="saldo" class="form-control">
+            <button id="addSaldo" class="btn btn-primary mt-2">Agregar Saldo</button>
+            <button id="subtractSaldo" class="btn btn-primary mt-2">Disminuir Saldo</button>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label for="ingresosTotales">Ingresos Totales:</label>
+                <span id="ingresosTotalesDisplay">0</span>
+            </div>
+            <div>
+                <label for="saldoDisponible">Saldo Disponible:</label>
+                <span id="saldoDisponibleDisplay">0</span>
+            </div>
+            <div>
+                <label for="deuda">Gastos Totales:</label>
+                <span id="deudaDisplay">0</span>
+            </div>
+            <div>
+                <label for="operacion">Categoría:</label>
+                <input type="text" id="operacion" class="form-control" required>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="emoji-bar-container">
+                <div class="emoji" id="emojiDiv"></div>
+                <div class="progress-bar-container">
+                    <div class="progress" id="progressBar">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <label for="historial">Historial:</label>
+                <ul id="historialList"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let saldoInput = document.getElementById('saldo');
+        let addSaldoButton = document.getElementById('addSaldo');
+        let subtractSaldoButton = document.getElementById('subtractSaldo');
+        let progressBar = document.querySelector('#progressBar .progress-bar');
+        let emojiDiv = document.getElementById('emojiDiv');
+        let ingresosTotalesDisplay = document.getElementById('ingresosTotalesDisplay');
+        let saldoDisponibleDisplay = document.getElementById('saldoDisponibleDisplay');
+        let operacionInput = document.getElementById('operacion');
+        let deudaDisplay = document.getElementById('deudaDisplay');
+
+        let deuda = 0;
+        let saldoTotal = 0;
+        let saldoDisponible = 0;
+
+        addSaldoButton.addEventListener('click', function() {
+            const saldoToAdd = parseFloat(saldoInput.value);
+            const operacion = operacionInput.value.trim();
+            if (!isNaN(saldoToAdd) && operacion !== '') {
+                saldoTotal += saldoToAdd;
+                saldoDisponible += saldoToAdd;
+                updateValues();
+                addToHistorial(`[Agregado ${operacion} +${saldoToAdd}]`);
+            }
+        });
+
+        subtractSaldoButton.addEventListener('click', function() {
+            const saldoToSubtract = parseFloat(saldoInput.value);
+            const operacion = operacionInput.value.trim();
+            if (!isNaN(saldoToSubtract) && operacion !== '') {
+                deuda += saldoToSubtract;
+                saldoDisponible -= saldoToSubtract;
+                updateValues();
+                addToHistorial(`[Disminuido ${operacion} -${saldoToSubtract}]`);
+            }
+        });
+
+        function updateValues() {
+            const totalDeuda1 = deuda * 1.5;
+            const totalDeuda2 = deuda * 2;
+            const totalDeuda3 = deuda * 2.5;
+
+            let color = '';
+            let progress = 0;
+            let emoji = '';
+            let backgroundColor = '';
+
+            if (deuda > saldoTotal) {
+                color = 'bg-danger';
+                progress = 100;
+                emoji = '😟';
+                backgroundColor = 'gray';
+            } else if (totalDeuda3 <= saldoTotal) {
+                color = 'bg-success';
+                progress = 100;
+                emoji = '😄';
+                backgroundColor = 'green';
+            } else if (totalDeuda1 >= saldoTotal) {
+                color = 'bg-danger';
+                progress = 33;
+                emoji = '😡';
+                backgroundColor = 'orange';
+            } else {
+                color = 'bg-warning';
+                progress = 66;
+                emoji = '😐';
+                backgroundColor = 'yellow';
+            }
+
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress.toString());
+            progressBar.className = `progress-bar ${color}`;
+            emojiDiv.innerHTML = `<div style="width: 20px; height: 20px; border-radius: 5%; display: flex; justify-content: center; align-items: center; background-color: white;">${emoji}</div>`;
+            emojiDiv.style.backgroundColor = backgroundColor;
+            ingresosTotalesDisplay.textContent = saldoTotal;
+            saldoDisponibleDisplay.textContent = saldoDisponible;
+            deudaDisplay.textContent = deuda;
+        }
+
+
+
+        function addToHistorial(operacion) {
+            const historialList = document.getElementById('historialList');
+            const li = document.createElement('li');
+            li.textContent = operacion;
+            historialList.appendChild(li);
+        }
+
         updateValues();
-        addToHistorial(`[Agregado ${operacion} +${saldoToAdd}]`);
-      }
     });
-
-    subtractSaldoButton.addEventListener('click', function() {
-      const saldoToSubtract = parseFloat(saldoInput.value);
-      const operacion = operacionInput.value.trim();
-      if (!isNaN(saldoToSubtract) && operacion !== '') {
-        deuda += saldoToSubtract;
-        saldoDisponible -= saldoToSubtract;
-        updateValues();
-        addToHistorial(`[Disminuido ${operacion} -${saldoToSubtract}]`);
-      }
-    });
-
-    function updateValues() {
-      const totalDeuda1 = deuda * 1.5;
-      const totalDeuda2 = deuda * 2;
-      const totalDeuda3 = deuda * 2.5;
-
-      let color = '';
-      let progress = 0;
-      let emoji = '';
-      let backgroundColor = '';
-
-      if (deuda > saldoTotal) {
-        color = 'bg-danger';
-        progress = 100;
-        emoji = '😟';
-        backgroundColor = 'gray';
-      } else if (totalDeuda3 <= saldoTotal) {
-        color = 'bg-success';
-        progress = 100;
-        emoji = '😄';
-        backgroundColor = 'green';
-      } else if (totalDeuda1 >= saldoTotal) {
-        color = 'bg-danger';
-        progress = 33;
-        emoji = '😡';
-        backgroundColor = 'orange';
-      } else {
-        color = 'bg-warning';
-        progress = 66;
-        emoji = '😐';
-        backgroundColor = 'yellow';
-      }
-
-      progressBar.style.width = `${progress}%`;
-      progressBar.setAttribute('aria-valuenow', progress.toString());
-      progressBar.className = `progress-bar ${color}`;
-      emojiDiv.innerHTML = `<div style="width: 20px; height: 20px; border-radius: 5%; display: flex; justify-content: center; align-items: center; background-color: white;">${emoji}</div>`;
-      emojiDiv.style.backgroundColor = backgroundColor;
-      ingresosTotalesDisplay.textContent = saldoTotal;
-      saldoDisponibleDisplay.textContent = saldoDisponible;
-      deudaDisplay.textContent = deuda;
-    }
-
-
-
-    function addToHistorial(operacion) {
-      const historialList = document.getElementById('historialList');
-      const li = document.createElement('li');
-      li.textContent = operacion;
-      historialList.appendChild(li);
-    }
-
-    updateValues();
-  });
 </script>
 
 </body>

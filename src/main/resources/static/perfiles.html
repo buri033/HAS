@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfiles</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    header .logo {
+      margin: 0;
+      font-size: 24px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .profile-cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .profile-card {
+      background-color: #1e5799; /* Azul oscuro */
+      color: #fff; /* Texto en blanco para mejor contraste */
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .delete-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #ff6347;
+      cursor: pointer;
+    }
+
+    .add-account {
+      background-color: #1e5799; /* Azul oscuro */
+      color: #fff; /* Texto en blanco para mejor contraste */
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Estilos para la ventana emergente */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      display: none;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #ff6347;
+      cursor: pointer;
+    }
+
+    .upload-button {
+      margin: 20px 0;
+    }
+
+    /* Estilos para el botón de carga de imágenes */
+    .file-input-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .file-input-wrapper input[type="file"] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header id="header" class="fixed-top">
+  <nav>
+    <a href="index.html" class="logo">HAS</a>
+  </nav>
+</header>
+
+<div class="profile-cards">
+  <div class="add-account" onclick="showPopup()">
+    <i class="fas fa-plus fa-4x"></i>
+    <p>Agregar Cuenta</p>
+  </div>
+</div>
+
+<!-- Ventana emergente para ingresar el nombre y la imagen -->
+<div class="popup" id="namePopup">
+  <div class="popup-content">
+    <span class="close" onclick="hidePopup()">X</span>
+    <h2>Ingresa el nombre de la persona:</h2>
+    <input type="text" id="personName">
+    <div class="file-input-wrapper">
+      <button class="upload-button">Subir Imagen</button>
+      <input type="file" id="profileImage" accept="image/*">
+    </div>
+    <button onclick="addNewProfileWithInput()">Agregar</button>
+  </div>
+</div>
+
+<script>
+  function showPopup() {
+    document.getElementById('namePopup').style.display = 'block';
+  }
+
+  function hidePopup() {
+    document.getElementById('namePopup').style.display = 'none';
+  }
+
+  function addNewProfileWithInput() {
+    const name = document.getElementById('personName').value;
+    const imageInput = document.getElementById('profileImage');
+    if (name && imageInput.files.length > 0) {
+      hidePopup();
+      const newProfileCard = document.createElement('div');
+      newProfileCard.className = 'profile-card';
+      newProfileCard.innerHTML = `
+          <span class="delete-button" onclick="deleteProfile(this)">X</span>
+          <img src="${URL.createObjectURL(imageInput.files[0])}" alt="Profile Image">
+          <h4>${name}</h4>
+        `;
+      document.querySelector('.profile-cards').insertBefore(newProfileCard, document.querySelector('.add-account'));
+    }
+  }
+
+  function deleteProfile(element) {
+    const profileCard = element.parentElement;
+    profileCard.remove();
+  }
+</script>
+</body>
+</html>

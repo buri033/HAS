@@ -2,16 +2,24 @@ package com.example.has.service;
 
 import com.example.has.models.Usuarios;
 import com.example.has.repository.UsuariosRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UsuariosServicelmpl implements UsuariosService{
+
+    @PersistenceContext
+    EntityManager entityManager;
+
 
     @Autowired
     private UsuariosRepository userRepository;//inyección de dependencias
@@ -44,5 +52,27 @@ public class UsuariosServicelmpl implements UsuariosService{
     public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public Usuarios update(Usuarios usuarios, Long id) {
+        return null;
+    }
+
+
+    @Override
+    public Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario) {
+        String hql = "FROM Usuarios WHERE email = :email" +
+                " AND password = :password";
+        List<Usuarios> lista = entityManager.createQuery(hql)
+                .setParameter("email", usuario.getEmail())
+                .setParameter("password", usuario.getPassword())
+                .getResultList();
+        if (lista.isEmpty()) {
+            return null;
+        } else {
+            return lista.get(0);
+        }
+    }
+
 
 }

@@ -25,7 +25,7 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Tempo - v4.9.1
@@ -41,18 +41,18 @@
 <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-        <a href="index.html"><h1 class="logo" style="color:white"><img src="assets/img/LogoOrigin.png">HAS</h1></a>
+        <a href="index.html"><h1 class="logo" style="color:white"><img class="logoto" src="assets/img/HAS.png">HAS</h1></a>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-                <li><a class="nav-link scrollto" href="login.html">Inicio de sesión</a></li>
                 <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
                 <li><a class="nav-link scrollto" href="servicios.html">Servicios</a></li>
-                <li><a class="nav-link scrollto " href="#portfolio">Portafolio</a></li>
+                <li><a class="nav-link scrollto" href="usuarios.html">Usuarios</a></li>
                 <li><a class="nav-link scrollto" href="contacto.html">Contáctanos</a></li>
+                <li><a class="nav-link scrollto" href="login.html">Inicio de sesión</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -60,34 +60,51 @@
     </div>
 </header><!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
-<section id="hero">
-    <div class="hero-container">
-        <h3>Bienvenidos a <strong>HAS</strong></h3>
-        <h1>HOME ADMINISTRATIVE SYSTEM</h1>
-        <h2>Somos un equipo, el cual te ayudará a manejar y/o controlar mejor tu economía</h2>
-        <a href="index.html" class="btn-get-started scrollto">Comencemos</a>
-    </div>
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/hero-carousel-1.jpg)"></div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.png)"></div>
-        <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
 
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="carrusel w-100 h-50" src="assets/img/hero-carousel/1.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-captionn">Bienvidos a HAS!</h5>
+                <p class="carousel-id">Somos una empresa que se dedica a la administración de gastos
+                    personales, con el fin de ayudar a las familias a tener un mejor control de sus gastos.</p>
 
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="carrusel w-100 h-50" src="assets/img/hero-carousel/2.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-captionn">¿Qué es HAS?</h5>
+                <p class="carousel-id">HAS es una aplicación web que se encarga de administrar los gastos
+                    personales de las familias, con el fin de ayudar a las familias a tener un mejor control de sus
+                    gastos.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="carrusel w-100 h-50" src="assets/img/hero-carousel/3.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-captionn">¿Cómo funciona?</h5>
+                <p class="carousel-id">La aplicación web funciona de la siguiente manera: el usuario se registra,
+                    ingresa sus datos personales, ingresa los datos de los gastos que realiza, y la aplicación web se
+                    encarga de ayudarle a llevar un control los gastos. A continuación lo podremos ver mejor por medio
+                    del siguiente video<br/>
+                    <a href="register.html" class="btn-get-started">Ingresar</a>&#160&#160&#160
+                    <a href="https://youtu.be/d3KJry-qBGI" class="bi-play-btn-fill"><i
+                            class="btn-secondary "></i><span>Watch Video</span></a>
+                </p>
 
-        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
         </a>
-
-        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
         </a>
-
     </div>
-</section><!-- End Hero -->
-
-<main id="main">
-
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -120,17 +137,7 @@
         </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-        <div class="container">
 
-            <div class="section-title">
-                <h2>Servicios</h2>
-                <h3>Ofrecemos increibles <span>Servicios</span></h3>
-                <p>Los siguientes servicios son los que proporciona nuestra empresa</p>
-            </div>
-        </div>
-    </section><!-- End Services Section -->
     <div class="Caracter">
         <h1><span>Valores</span></h1>
     </div>
@@ -142,54 +149,54 @@
                 <div class="col-lg-3 col-md-4 col-6 col-6">
                     <div class="icon-box">
                         <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                        <h3><a href="">Responsabilidad</a></h3>
+                        <h3><a>Responsabilidad</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="icon-box">
                         <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                        <h3><a href="">Solidaridad</a></h3>
+                        <h3><a>Solidaridad</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
                     <div class="icon-box">
                         <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                        <h3><a href="">Optimismo</a></h3>
+                        <h3><a>Optimismo</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
                     <div class="icon-box">
                         <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                        <h3><a href="">Orden</a></h3>
+                        <h3><a>Orden</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4">
                     <div class="icon-box">
                         <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                        <h3><a href="">Respeto</a></h3>
+                        <h3><a>Respeto</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4">
                     <div class="icon-box">
                         <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                        <h3><a href="">Honestidad</a></h3>
+                        <h3><a>Honestidad</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4">
                     <div class="icon-box">
                         <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                        <h3><a href="">Escucha</a></h3>
+                        <h3><a>Escucha</a></h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-6 mt-4">
                     <div class="icon-box">
                         <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-                        <h3><a href="">Excelencia</a></h3>
+                        <h3><a>Excelencia</a></h3>
                     </div>
                 </div>
 
             </div>
-
+        </div>
     </section><!-- End Features Section -->
 
     <!-- ======= Cta Section ======= -->
@@ -199,10 +206,10 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-title" >
                 <h2>Misión y visión</h2>
                 <h3>Nuestra <span>misión </span>y <span> visión</span></h3>
-                <p>
+                <p align="justify" >
                     <b>MISIÓN:</b>
 
                     La misión que tenemos para nuestro proyecto es la de lograr que cada gasto o consumo que tengamos en
@@ -211,7 +218,7 @@
                     llegue una notificación al celular de que se debe realizar un pago o se realizó un pago, haciendo
                     saber al administrador en todo momento como está nuestro hogar.
                 </p>
-                <p>
+                <p align="justify">
                     <b>VISIÓN:</b>
 
                     Creemos que en un futuro no muy lejano podremos lograr hacer que nuestro proyecto pueda prosperar a
@@ -223,19 +230,19 @@
             <div class="row portfolio-container">
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/img/money.jpg" class="img-fluid" alt="">
+                  <div class="index-1"><img src="assets/img/index-1.jpg"  alt=""></div>
                     <div class="portfolio-info">
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/img/money2.jpg" class="img-fluid" alt="">
+                    <img src="assets/img/index-2.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/img/money3.jpg" class="img-fluid" alt="">
+                    <img src="assets/img/index-3.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <div class="portfolio-info">
                         </div>
@@ -244,81 +251,57 @@
                 </div>
             </div>
 
+        </div>
     </section><!-- End Portfolio Section -->
 
 
     <!-- ======= F.A.Q Section ======= -->
 
 
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
 
 
+        <div class="container d-md-flex py-4">
 
-</main><!-- End #main -->
-
-<!-- ======= Footer ======= -->
-<footer id="footer">
-
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>HAS</h3>
-                    <p>
-                        Cra 47 <br>
-                        #79-41<br>
-                        Gardel <br><br>
-                        <strong>Celular:</strong> +57 5589 55488 55<br>
-                        <strong>Correo:</strong> info@example.com<br>
-                    </p>
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>HAS</span></strong>
                 </div>
 
-                <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Direcciones útiles</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Términos de pivacidad</a></li>
-                    </ul>
-                </div>
-
-
-
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
         </div>
-    </div>
+    </footer><!-- End Footer -->
 
-    <div class="container d-md-flex py-4">
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-        <div class="me-md-auto text-center text-md-start">
-            <div class="copyright">
-                &copy; Copyright <strong><span>HAS</span></strong>
-            </div>
-
-        </div>
-        <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-    </div>
-</footer><!-- End Footer -->
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
