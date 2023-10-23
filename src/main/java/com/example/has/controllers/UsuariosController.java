@@ -52,7 +52,12 @@ public class UsuariosController {
         user.setPassword(userDetails.getPassword());
         return usuariosRepository.save(user);
     }
-
+@PutMapping ("/{id}/saldo")
+    public Usuarios updateSaldo(@RequestBody Usuarios userDetails, @PathVariable(value = "id") Long id) {
+        Usuarios user = usuariosRepository.findById(id).get();
+        user.setSaldo(userDetails.getSaldo()+user.getSaldo());
+        return usuariosRepository.save(user);
+    }
 
 }
 

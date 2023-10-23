@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "usuarios")
 @ToString
@@ -30,5 +32,9 @@ public class Usuarios  {
 
     @Column(name = "telefono")
     private String telefono;
+
+    @Column(name = "saldo")
+    private Long saldo;
+
 }
 
