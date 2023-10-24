@@ -480,6 +480,21 @@ section {
     padding-bottom: 30px;
 }
 
+#titlesec{
+    top: -60px;
+    position: relative;
+    font-size: 21px;
+}
+
+#titlesec2 {
+    font-size: 23px;
+}
+
+.valoress{
+    position: relative;
+    top: -20px;
+}
+
 .section-title h2 {
     font-size: 13px;
     letter-spacing: 1px;
@@ -515,7 +530,7 @@ section {
 
 @media (min-width: 1024px) {
     .section-title p {
-        width: 50%;
+        width: 100%;
     }
 }
 
