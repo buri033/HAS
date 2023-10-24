@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let saldoInput = document.getElementById('saldo');
     let addSaldoButton = document.getElementById('addSaldo');
     let subtractSaldoButton = document.getElementById('subtractSaldo');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let saldoTotal = 0;
     let saldoDisponible = 0;
 
-    addSaldoButton.addEventListener('click', function() {
+    addSaldoButton.addEventListener('click', function () {
         const saldoToAdd = parseFloat(saldoInput.value);
         const operacion = operacionInput.value.trim();
         if (!isNaN(saldoToAdd) && operacion !== '') {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    subtractSaldoButton.addEventListener('click', function() {
+    subtractSaldoButton.addEventListener('click', function () {
         const saldoToSubtract = parseFloat(saldoInput.value);
         const operacion = operacionInput.value.trim();
         if (!isNaN(saldoToSubtract) && operacion !== '') {
@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         saldoDisponibleDisplay.textContent = saldoDisponible;
         deudaDisplay.textContent = deuda;
     }
-
 
 
     function addToHistorial(operacion) {
