@@ -1,9 +1,9 @@
 async function regisProducto() {
     let datos = {};
-    datos.nombre = document.getElementById("txtnombre").value;
+    datos.nombre = document.getElementById("txtNombre").value;
     datos.marca = document.getElementById("txtmarca").value;
-    datos.tipo = document.getElementById("txttipo").value;
-    datos.precio = document.getElementById("txtprecio").value;
+    datos.tipo = document.getElementById("txtTipo").value;
+    datos.precio = document.getElementById("txtPrecio").value;
     datos.cantidad = document.getElementById("txtcantidad").value;
 
 // Validar que ningún campo esté en blanco
@@ -13,7 +13,7 @@ async function regisProducto() {
     }
 
 
-    const request = await fetch('api/productos', {
+    const request = await fetch('/api/productos', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

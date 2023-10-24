@@ -1,5 +1,9 @@
 cargarProductos();
-
+$(document).ready(function () {
+    cargarProductos();
+    $('#productos').DataTable();
+    actualizarEmailDelUsuario();
+});
 function actualizarEmailDelUsuario() {
     document.getElementById("txt-email-usuario").outerHTML = localStorage.email;
 }
@@ -11,14 +15,14 @@ async function cargarProductos() {
 
         const productos = await request.json();
         let listadoHtml = '';
-        for (let usuario of productos) {
-            let botonEliminar = '<a href="#" onclick="eliminarUsuario(' + usuario.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
-            let botonEditar = '<a href="#" onclick="editarUsuario(' + usuario.id + ')" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-edit"></i></a>';
+        for (let producto of productos) {
+            let botonEliminar = '<a href="#" onclick="eliminarProducto(' + producto.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
+            let botonEditar = '<a href="#" onclick="editarProducto(' + producto.id + ')" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-edit"></i></a>';
 
-            let usuarioHtml = '<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td>' + usuario.marca + '</td><td>' + usuario.tipo + '</td><td>' + usuario.precio + '</td><td>' + usuario.cantidad + '</td><td>'+ botonEditar + " " + botonEliminar + '</td></tr>';
+            let productoHtml = '<tr><td>' + producto.id + '</td><td>' + producto.nombre + '</td><td>' + producto.marca + '</td><td>' + producto.tipo + '</td><td>' + producto.precio + '</td><td>' + producto.cantidad + '</td><td>'+ botonEditar + " " + botonEliminar + '</td></tr>';
 
 
-            listadoHtml += usuarioHtml;
+            listadoHtml += productoHtml;
         }
 
 
@@ -38,13 +42,13 @@ function getHeaders() {
     };
 }
 
-async function eliminarUsuario(id) {
+async function eliminarProducto(id) {
 
     Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: '¿Quieres eliminar el producto?',
         showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
         denyButtonText: 'No',
         customClass: {
             actions: 'my-actions',
@@ -54,9 +58,9 @@ async function eliminarUsuario(id) {
         }
     }).then(async (result) => {
         if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
+            Swal.fire('Eliminado!', '', 'success')
         } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
+            Swal.fire('Tú producto sigue intacto!', '', 'info')
         }
 
 
@@ -68,35 +72,38 @@ async function eliminarUsuario(id) {
             method: 'DELETE',
             headers: getHeaders()
         });
-        cargarUsuarios()
+        cargarProductos()
     })
 
 }
 
-async function buscarUsuario() {
+async function buscarProducto() {
     const busqueda = document.getElementById("entrada-search").value;
-    cargarUsuarios(busqueda);
+    cargarProductos(busqueda);
 }
 
-async function editarUsuario(id) {
+async function editarProducto(id) {
     // obtener información del usuario
     const request = await fetch('api/productos/' + id, {
         method: 'GET',
         headers: getHeaders()
     });
-    const usuario = await request.json();
+    const producto = await request.json();
 
     const { value: formValues } = await Swal.fire({
-        title: 'Editar usuario',
+        title: 'Editar producto',
         html:
             '<label for="swal-input1">Nombre: &#160</label>' +
-            '<input id="swal-input1" class="swal2-input" placeholder="Nombre" value="' + (usuario.nombre || '') + '">' +
-            '<label for="swal-input2">Password:</label>' +
-            '<input id="swal-input2" class="swal2-input" placeholder="Password" value="' + (usuario.password || '') + '">' +
-            '<label for="swal-input3">Email:&#160 &#160 &#160</label>' +
-            '<input id="swal-input3" class="swal2-input" placeholder="Email" value="' + (usuario.email || '') + '">' +
-            '<label for="swal-input4">Teléfono:</label>' +
-            '<input id="swal-input4" class="swal2-input" placeholder="Teléfono" value="' + (usuario.telefono || '') + '">',
+            '<input id="swal-input1" class="swal2-input" placeholder="Nombre" value="' + (producto.nombre || '') + '">' +
+            '<label for="swal-input2">Marca:</label>' +
+            '<input id="swal-input2" class="swal2-input" placeholder="Marca" value="' + (producto.marca || '') + '">' +
+            '<label for="swal-input3">Tipo:&#160 &#160 &#160</label>' +
+            '<input id="swal-input3" class="swal2-input" placeholder="Tipo" value="' + (producto.tipo || '') + '">' +
+            '<label for="swal-input4">Precio:</label>' +
+            '<input id="swal-input4" class="swal2-input" placeholder="Precio" value="' + (producto.precio || '') + '">' +
+            '<label for="swal-input5">Cantidad:</label>' +
+            '<input id="swal-input5" class="swal2-input" placeholder="Cantidad" value="' + (producto.cantidad || '') + '">',
+
         focusConfirm: false,
         showCancelButton: true,
         confirmButtonText: 'Guardar',
@@ -108,16 +115,19 @@ async function editarUsuario(id) {
     if (formValues) {
         // Procesar los valores ingresados aquí
         const nombre = document.getElementById("swal-input1").value;
-        const password = document.getElementById("swal-input2").value;
-        const email = document.getElementById("swal-input3").value;
-        const telefono = document.getElementById("swal-input4").value;
+        const marca = document.getElementById("swal-input2").value;
+        const tipo = document.getElementById("swal-input3").value;
+        const precio = document.getElementById("swal-input4").value;
+        const cantidad = document.getElementById("swal-input5").value;
+
 
         // Crear un objeto con los datos actualizados del usuario
         const datosActualizados = {
             nombre,
-            password,
-            email,
-            telefono
+            marca,
+            tipo,
+            precio,
+            cantidad
         };
 
         // Realizar la solicitud AJAX para actualizar los datos del usuario
@@ -132,13 +142,13 @@ async function editarUsuario(id) {
         });
 
         if (actualizarUsuarioRequest.status === 200) {
-            Swal.fire('Usuario actualizado correctamente', '', 'success');
-            cargarUsuarios();
+            Swal.fire('Producto actualizado correctamente', '', 'success');
+            cargarProductos();
             // Puedes realizar alguna acción adicional si la actualización fue exitosa
         } else {
-            Swal.fire('Error al actualizar el usuario', '', 'error');
+            Swal.fire('Error al actualizar el producto', '', 'error');
             // Puedes manejar errores aquí
-            cargarUsuarios();
+            cargarProductos();
         }
     }
 

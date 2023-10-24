@@ -49,10 +49,10 @@ function getHeaders() {
 async function eliminarUsuario(id) {
 
     Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: '¿Quieres eliminar el usuario?',
         showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
         denyButtonText: 'No',
         customClass: {
             actions: 'my-actions',
@@ -62,9 +62,9 @@ async function eliminarUsuario(id) {
         }
     }).then(async (result) => {
         if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
+            Swal.fire('Eliminado!', '', 'success')
         } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
+            Swal.fire('Tu usuario está seguro', '', 'info')
         }
 
 
