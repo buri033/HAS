@@ -5,7 +5,15 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background-image: linear-gradient(360deg, #070c18 10%, #0d570d 100%);}
+}
+
+.backk2 {
+    background-image: linear-gradient(360deg, #070c18 10%, #0d570d 100%);
+    font-family: "Open Sans", sans-serif;
+    color: #ffffff;
+}
+
+
 
 body {
     line-height: 1
@@ -81,11 +89,6 @@ li {
 
 /* ---- base ---- */
 
-html, body {
-    width: 100%;
-    height: 100%;
-    background: #111;
-}
 
 .navbar {
     padding: 0;
@@ -106,6 +109,11 @@ html, body {
 .navbar > ul > li {
     white-space: nowrap;
     padding: 10px 0 10px 24px;
+}
+
+.rowawo {
+    transform: translateX(12%);
+
 }
 
 .navbar a,

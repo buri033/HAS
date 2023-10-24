@@ -1,6 +1,12 @@
 .services {
     padding-bottom: 30px;
 }
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #111;
+}
+
 .navbar {
     padding: 0;
 }

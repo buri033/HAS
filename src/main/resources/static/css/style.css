@@ -104,7 +104,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
     padding: 0;
@@ -242,7 +242,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
     color: #fff;
@@ -1142,7 +1142,6 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
     width: 100%;
-    background: #fff;
 }
 
 .contact .info i {
@@ -1188,7 +1187,6 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    background: #fff;
 }
 
 .contact .php-email-form .form-group {
@@ -1239,7 +1237,7 @@ section {
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
-    border-radius: 0;
+    border-radius: 12px;
     box-shadow: none;
     font-size: 14px;
 }
