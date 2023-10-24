@@ -1,16 +1,10 @@
 package com.example.has.controllers;
 import com.example.has.models.Usuarios;
 import com.example.has.repository.UsuariosRepository;
-import com.example.has.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 
 @RestController
