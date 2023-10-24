@@ -1,11 +1,10 @@
 body {
-    background-color: #000; /* Negro */
-    color: #00FF00; /* Verde */
+    background: linear-gradient(135deg, rgb(7, 12, 24), #0d570d);
     font-family: Arial, sans-serif;
 }
 
 .header {
-    background-color: #343a40;
+    background-color: #2a2f34;
     color: white;
     padding: 10px 0;
 }
@@ -16,10 +15,11 @@ body {
 }
 
 .container {
-    background-color: #fff; /* Blanco */
+    background-color: rgba(33, 33, 33);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgb(108, 108, 119);
+    margin-bottom: 20px;
 }
 
 .input-container {
@@ -31,12 +31,12 @@ label {
 }
 
 .btn-primary {
-    background-color: #00FF00; /* Verde */
+    background-color: #00FF00;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #007F00; /* Verde más oscuro al hacer hover */
+    background-color: #007F00;
 }
 
 .emoji-bar-container {
@@ -82,3 +82,4 @@ ul li {
     background-color: #f0f0f0;
     border-radius: 5px;
 }
+
