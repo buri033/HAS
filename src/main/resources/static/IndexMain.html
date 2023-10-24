@@ -102,13 +102,18 @@
     </div>
 
 </header>
-
+<div class="col-md-6">
+    <label for="saldo">Ingresar cédula:</label>
+    <input type="text" id="Cedula" class="form-control">
+    <button onclick="verificarcontra()"  type="submit">
+        Verificar
+    </button>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
             <label for="saldo">Ingresar movimiento:</label>
             <input type="number" id="saldo" class="form-control">
-            <a id="addSaldo" onclick="sumarSaldo()" class="btn btn-primary mt-2">Agregar Saldo</a>
+            <button id="addSaldo" onclick="sumarSaldo()" class="btn btn-primary mt-2">Agregar Saldo</button>
             <button id="subtractSaldo" class="btn btn-primary mt-2">Disminuir Saldo</button>
         </div>
         <div class="col-md-6">
@@ -158,6 +163,8 @@
     </div>
 </div>
 
+    <script src="assets/js/contraseña.js"> </script>
+    <script src="assets/js/sumar.js"> </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         let saldoInput = document.getElementById('saldo');

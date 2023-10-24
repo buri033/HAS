@@ -17,7 +17,6 @@ import java.util.List;
 public class Usuarios  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -33,8 +32,9 @@ public class Usuarios  {
     @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "saldo")
+    @Column(name = "saldo", nullable = true)
     private Long saldo;
+
 
 }
 
