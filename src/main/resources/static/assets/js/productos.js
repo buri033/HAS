@@ -93,13 +93,13 @@ async function editarProducto(id) {
     const { value: formValues } = await Swal.fire({
         title: 'Editar producto',
         html:
-            '<label for="swal-input1">Nombre: &#160</label>' +
+            '<label for="swal-input1">Nombre:</label>' +
             '<input id="swal-input1" class="swal2-input" placeholder="Nombre" value="' + (producto.nombre || '') + '">' +
-            '<label for="swal-input2">Marca:</label>' +
+            '<label for="swal-input2">Marca: &#160</label>' +
             '<input id="swal-input2" class="swal2-input" placeholder="Marca" value="' + (producto.marca || '') + '">' +
             '<label for="swal-input3">Tipo:&#160 &#160 &#160</label>' +
             '<input id="swal-input3" class="swal2-input" placeholder="Tipo" value="' + (producto.tipo || '') + '">' +
-            '<label for="swal-input4">Precio:</label>' +
+            '<label for="swal-input4">Precio: &#160</label>' +
             '<input id="swal-input4" class="swal2-input" placeholder="Precio" value="' + (producto.precio || '') + '">' +
             '<label for="swal-input5">Cantidad:</label>' +
             '<input id="swal-input5" class="swal2-input" placeholder="Cantidad" value="' + (producto.cantidad || '') + '">',
