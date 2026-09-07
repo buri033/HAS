@@ -7,6 +7,9 @@ async function registrarUsuario() {
     datos.email = document.getElementById("txtEmail").value;
     datos.password = document.getElementById("txtPassword").value;
     datos.repetirpassword = document.getElementById("txtRepetirPassword").value;
+    datos.id = document.getElementById("txtCedula").value;
+    datos.saldo = 0;
+console.log(JSON.stringify(datos))
 
     const request = await fetch('api/usuarios', {
         method: 'POST',

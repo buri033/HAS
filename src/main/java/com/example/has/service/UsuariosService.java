@@ -15,4 +15,6 @@ public interface UsuariosService {
     public void deleteById(Long id);
     public Usuarios update(Usuarios usuarios, Long id);
     Usuarios obtenerUsuarioPorCredenciales(Usuarios usuario);
+
+    Usuarios obtenerUsuarioPorCredenciales2(Usuarios usuario);
 }

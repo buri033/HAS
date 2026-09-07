@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "usuarios")
 @ToString
@@ -15,7 +17,6 @@ import lombok.ToString;
 public class Usuarios  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -30,5 +31,10 @@ public class Usuarios  {
 
     @Column(name = "telefono")
     private String telefono;
+
+    @Column(name = "saldo", nullable = true)
+    private Long saldo;
+
+
 }
 

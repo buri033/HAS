@@ -4,7 +4,6 @@ import com.example.has.models.Usuarios;
 import com.example.has.repository.UsuariosRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -66,6 +65,18 @@ public class UsuariosServicelmpl implements UsuariosService{
         List<Usuarios> lista = entityManager.createQuery(hql)
                 .setParameter("email", usuario.getEmail())
                 .setParameter("password", usuario.getPassword())
+                .getResultList();
+        if (lista.isEmpty()) {
+            return null;
+        } else {
+            return lista.get(0);
+        }
+    }
+    @Override
+    public Usuarios obtenerUsuarioPorCredenciales2(Usuarios usuario) {
+        String hql = "FROM Usuarios WHERE id = :id";
+        List<Usuarios> lista = entityManager.createQuery(hql)
+                .setParameter("id", usuario.getId())
                 .getResultList();
         if (lista.isEmpty()) {
             return null;

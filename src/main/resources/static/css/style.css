@@ -104,7 +104,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
     padding: 0;
@@ -242,7 +242,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
     color: #fff;
@@ -480,6 +480,21 @@ section {
     padding-bottom: 30px;
 }
 
+#titlesec{
+    top: -60px;
+    position: relative;
+    font-size: 21px;
+}
+
+#titlesec2 {
+    font-size: 23px;
+}
+
+.valoress{
+    position: relative;
+    top: -20px;
+}
+
 .section-title h2 {
     font-size: 13px;
     letter-spacing: 1px;
@@ -515,7 +530,7 @@ section {
 
 @media (min-width: 1024px) {
     .section-title p {
-        width: 50%;
+        width: 100%;
     }
 }
 
@@ -1127,7 +1142,6 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
     width: 100%;
-    background: #fff;
 }
 
 .contact .info i {
@@ -1173,7 +1187,6 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    background: #fff;
 }
 
 .contact .php-email-form .form-group {
@@ -1224,7 +1237,7 @@ section {
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
-    border-radius: 0;
+    border-radius: 12px;
     box-shadow: none;
     font-size: 14px;
 }
