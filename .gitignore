@@ -14,10 +14,18 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
+*.ipr
 *.iws
 *.iml
-*.ipr
+out/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
 
 ### NetBeans ###
 /nbproject/private/
@@ -28,6 +36,10 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+# Spring Boot
+*.properties~
+*.yml~
 
 ### VS Code ###
 .vscode/
